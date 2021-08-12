@@ -11,6 +11,14 @@ Read the article https://codeburst.io/learn-and-understand-recursion-in-javascri
 console.log(repeater('g')); // 'ggggg'
 console.log(repeater('j')); // 'jjjjj'
 ```
+let stringVal = '';
+function repeater(char) {
+  if (stringVal.length == 5) {
+    return stringVal;
+  }
+  stringVal += char;
+  return repeater(stringVal);
+}
 
 - Write a function named `loop` that loops through the numbers n down to 0. Each time it will log the value.
 
@@ -19,6 +27,13 @@ console.log(repeater('j')); // 'jjjjj'
 console.log(loop(10)); // 10 9 8 7 6 5 4 3 2 1 0
 console.log(loop(4)); // 4 3 2 1 0
 ```
+function loop(n) {
+  if (n < 0) {
+    return;
+  }
+  console.log(n);
+  loop(--n);
+}
 
 - Write a function `countTo` that takes one argument limit and logs the number from 0 to limit
 
@@ -27,11 +42,18 @@ console.log(loop(4)); // 4 3 2 1 0
 console.log(countTo(10)); // 0 1 2 3 4 5 6 7 8 9 10
 console.log(countTo(4)); // 0 1 2 3 4
 ```
-
+let counter = 0;
+function countTo(limit) {
+  if (counter > limit) {
+    return;
+  }
+  console.log(counter);
+  ++counter;
+  countTo(limit);
+}
 - Write a function `exponent` that takes two arguments base, and expo. Using a while loop return the exponent value of the base. For example if the base if `4` and expo is `3` the output will be `4 * 4 * 4` i.e 64.
 
 ```js
-// Test
 console.log(exponent(2, 3)); // 8
 console.log(exponent(3, 3)); // 27
 ```
