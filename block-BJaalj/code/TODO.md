@@ -4,7 +4,10 @@
 
 ```js
 function linearSearch() {
-  //  Your code goes here
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === item) return i;
+  }
+  return -1;
 }
 
 // TEST
@@ -19,7 +22,20 @@ console.log(linearSearch(list, 54)); // 8
 
 ```js
 function binarySearch() {
-  //  Your code goes here
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = left + Math.floor((right - left) / 2);
+    if (arr[mid] === item) {
+      return mid;
+    }
+    if (arr[mid] < item) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
 }
 
 // TEST
